@@ -1,30 +1,15 @@
 import { LoadMoreButton } from './Button.styled';
-import { useRef } from 'react';
+
 import PropTypes from 'prop-types';
 
 export const Button = ({ onLoadMore, showed }) => {
-  const btnRef = useRef();
-
   const handleIncreaseAmountOfPage = evt => {
     onLoadMore();
-    updateScroll(btnRef.current.offsetTop);
   };
-
-  const updateScroll = height => {
-    return window.scrollBy({
-      top: height * 2,
-      behavior: 'smooth',
-    });
-  };
-  /// Почему не работает метод ?
 
   return (
     showed && (
-      <LoadMoreButton
-        type="button"
-        ref={btnRef}
-        onClick={handleIncreaseAmountOfPage}
-      >
+      <LoadMoreButton type="button" onClick={handleIncreaseAmountOfPage}>
         Load more
       </LoadMoreButton>
     )

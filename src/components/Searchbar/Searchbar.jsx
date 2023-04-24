@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   HeaderSearchbar,
   Form,
@@ -12,6 +12,7 @@ export const Searchbar = ({ getQueryandResetPageAndData, page }) => {
 
   const handleInputChange = evt => {
     const { value } = evt.currentTarget;
+
     setQuery(value.toLocaleString());
   };
 
