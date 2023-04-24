@@ -32,12 +32,11 @@ export const App = () => {
         if (res.data.hits.length === 0) {
           return;
         }
-
+        setButtonStatus(true);
         setData(prevState => [...prevState, ...res.data.hits]);
       })
       .finally(() => {
         setLoaderVisible(false);
-        setButtonStatus(true);
       });
     return () => {
       controller.abort();
